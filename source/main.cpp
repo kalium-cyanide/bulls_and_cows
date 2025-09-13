@@ -2,6 +2,7 @@
 #include "Players/HumanPlayer.hpp"
 #include "Players/IPlayer.hpp"
 #include <exception>
+#include <stdlib.h>
 
 void gameLoop()
 {
@@ -36,16 +37,14 @@ void gameLoop()
 }
 
 int main()
+try
 {
-    try
-    {
-        gameLoop();
-    }
-    catch (std::exception error)
-    {
-        std::cerr << error.what();
-        return -1;
-    }
+    gameLoop();
 
     return 0;
+}
+catch (std::exception error)
+{
+    std::cerr << error.what();
+    return -1;
 }
