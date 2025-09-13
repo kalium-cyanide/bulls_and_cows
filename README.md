@@ -1,2 +1,2 @@
-# bulls_and_cows
-# bulls_and_cows
+Перед запуском bulls_cows необоходимо запустить generate_data
+или прописать зависимости в cmake но я не умею

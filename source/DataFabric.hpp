@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <map>
+#include <stdexcept>
 #include <tuple>
 #include <vector>
 
@@ -14,6 +15,11 @@ class DataFabric
     {
         auto result = new std::vector(5040, std::vector(5040, std::tuple<int, int>()));
         auto score_matrix_file = std::ifstream("score_matrix.bin", std::ios::binary);
+
+        if (not score_matrix_file)
+        {
+            throw std::runtime_error("can't open score_matrix.bin");
+        }
 
         for (int i = 0; i < 5040; i++)
             for (int j = 0; j < 5040; j++)
@@ -43,6 +49,11 @@ class DataFabric
     {
         auto result = new std::vector<std::string>();
         auto permutations_file = std::ifstream("permutations.bin", std::ios::binary);
+
+        if (not permutations_file)
+        {
+            throw std::runtime_error("can't open permutations.bin");
+        }
 
         for (int i = 0; i < 5040; i++)
         {

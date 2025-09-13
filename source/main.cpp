@@ -1,6 +1,7 @@
 #include "BullsAndCows.hpp"
 #include "Players/HumanPlayer.hpp"
 #include "Players/IPlayer.hpp"
+#include <exception>
 
 void gameLoop()
 {
@@ -36,6 +37,15 @@ void gameLoop()
 
 int main()
 {
-    gameLoop();
+    try
+    {
+        gameLoop();
+    }
+    catch (std::exception error)
+    {
+        std::cerr << error.what();
+        return -1;
+    }
+
     return 0;
 }
